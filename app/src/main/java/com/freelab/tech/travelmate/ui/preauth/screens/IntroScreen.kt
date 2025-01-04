@@ -1,15 +1,14 @@
 package com.freelab.tech.travelmate.ui.preauth.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.freelab.tech.travelmate.R
+import com.freelab.tech.travelmate.ui.components.AppButton
 import com.freelab.tech.travelmate.ui.navigation.LocalNavController
 
 @Composable
@@ -35,6 +35,12 @@ fun IntroScreen() {
             contentDescription = "screen background image",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black.copy(alpha = 0.5f))
         )
 
         Column(
@@ -63,17 +69,12 @@ fun IntroScreen() {
 
             Spacer(modifier = Modifier.weight(1f))
 
-            Button(
-                onClick = { navController.navigate("register_one") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            ) {
-                Text(text = "Get Started", fontSize = 16.sp)
+            AppButton(text = "Get Started") {
+                navController.navigate("register_one")
             }
 
             Text(
-                text = "Already have an account? Log in",
+                text = "I already have an account",
                 fontSize = 14.sp,
                 color = Color.White,
                 modifier = Modifier
