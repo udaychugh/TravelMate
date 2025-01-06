@@ -53,18 +53,18 @@ fun IntroScreen() {
 
             Text(
                 text = "Hey! Welcome",
-                fontSize = 24.sp,
+                fontSize = 38.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
-                modifier = Modifier.padding(top = 16.dp)
+                modifier = Modifier.padding(top = 16.dp, bottom = 10.dp)
             )
 
             Text(
-                text = "Adventure awaits, let our app take you there.",
-                fontSize = 16.sp,
+                text = "Adventure awaits,\n let our app take you there.",
+                fontSize = 20.sp,
                 color = Color.White,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 10.dp)
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -75,14 +75,16 @@ fun IntroScreen() {
 
             Text(
                 text = "I already have an account",
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 color = Color.White,
                 modifier = Modifier
-                    .padding(top = 8.dp)
+                    .padding(all = 10.dp)
                     .clickable {
                         navController.navigate("login")
                     }
             )
+
+            Spacer(modifier = Modifier.height(50.dp))
         }
     }
 

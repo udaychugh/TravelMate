@@ -23,6 +23,8 @@ import com.freelab.tech.travelmate.ui.components.AppButton
 import com.freelab.tech.travelmate.ui.components.AppInput
 import com.freelab.tech.travelmate.ui.navigation.LocalNavController
 import com.freelab.tech.travelmate.ui.theme.bgBlack
+import com.freelab.tech.travelmate.ui.utils.isValidEmail
+import com.freelab.tech.travelmate.ui.utils.isValidName
 
 @Composable
 fun RegisterScreenOne() {
@@ -31,17 +33,32 @@ fun RegisterScreenOne() {
     val name = remember {
         mutableStateOf("")
     }
+    val nameError = remember {
+        mutableStateOf(false)
+    }
     val email = remember {
         mutableStateOf("")
+    }
+    val emailError = remember {
+        mutableStateOf(false)
     }
     val phone = remember {
         mutableStateOf("")
     }
+    val phoneError = remember {
+        mutableStateOf(false)
+    }
     val password = remember {
         mutableStateOf("")
     }
+    val passwordError = remember {
+        mutableStateOf(false)
+    }
     val confirmPassword = remember {
         mutableStateOf("")
+    }
+    val confirmError = remember {
+        mutableStateOf(false)
     }
 
     Box(
@@ -61,7 +78,7 @@ fun RegisterScreenOne() {
 
             Text(
                 text = "Create a new account",
-                fontSize = 20.sp,
+                fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
                 modifier = Modifier.padding(top = 16.dp)
@@ -74,41 +91,56 @@ fun RegisterScreenOne() {
                 color = Color.White,
             )
 
-            Spacer(modifier = Modifier.height(200.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             AppInput(
                 fieldValue = name,
-                label = "Full Name"
+                label = "Full Name",
+                isError = nameError,
+                errorText = "Name is Invalid"
             )
 
             AppInput(
                 fieldValue = email,
                 label = "Email Address",
-                keyboardType = KeyboardType.Email
+                keyboardType = KeyboardType.Email,
+                isError = emailError,
+                errorText = "Please enter a valid Email containing @ in it"
             )
 
             AppInput(
                 fieldValue = phone,
                 label = "Phone Number",
-                keyboardType = KeyboardType.Phone
+                keyboardType = KeyboardType.Phone,
+                isError = phoneError
             )
 
             AppInput(
                 fieldValue = password,
                 label = "Password",
-                keyboardType = KeyboardType.Password
+                keyboardType = KeyboardType.Password,
+                isError = passwordError
             )
 
             AppInput(
                 fieldValue = confirmPassword,
                 label = "Confirm Password",
                 keyboardType = KeyboardType.Password,
-                isLastInput = true
+                isLastInput = true,
+                isError = confirmError
             )
 
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(50.dp))
             
             AppButton(text = "Next") {
+                if (!name.value.isValidName()) {
+                    nameError.value = true
+                    return@AppButton
+                }
+                if (!email.value.isValidEmail()) {
+                    emailError.value = true
+                    return@AppButton
+                }
                 navController.navigate("register_two")
             }
 
@@ -134,7 +166,9 @@ fun RegisterScreenTwo() {
     val carName = remember {
         mutableStateOf("")
     }
-
+    val carNameError = remember {
+        mutableStateOf(false)
+    }
     val modelYear = remember {
         mutableStateOf("")
     }
@@ -168,7 +202,7 @@ fun RegisterScreenTwo() {
 
             Text(
                 text = "Enter Car Info",
-                fontSize = 20.sp,
+                fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
                 modifier = Modifier.padding(top = 16.dp)
@@ -181,37 +215,42 @@ fun RegisterScreenTwo() {
                 color = Color.White,
             )
 
-            Spacer(modifier = Modifier.height(200.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             AppInput(
                 fieldValue = carName,
-                label = "Car Name"
+                label = "Car Name",
+                isError = carNameError
             )
 
             AppInput(
                 fieldValue = modelYear,
                 label = "Model Year",
-                keyboardType = KeyboardType.Number
+                keyboardType = KeyboardType.Number,
+                isError = carNameError
             )
 
             AppInput(
                 fieldValue = kmsDriven,
                 label = "Kms Driven",
-                keyboardType = KeyboardType.Number
+                keyboardType = KeyboardType.Number,
+                isError = carNameError
             )
 
             AppInput(
                 fieldValue = engineType,
-                label = "Engine Type"
+                label = "Engine Type",
+                isError = carNameError
             )
 
             AppInput(
                 fieldValue = condition,
                 label = "Condition",
-                isLastInput = true
+                isLastInput = true,
+                isError = carNameError
             )
 
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             AppButton(text = "Let's Go") {
                 navController.navigate("login")
