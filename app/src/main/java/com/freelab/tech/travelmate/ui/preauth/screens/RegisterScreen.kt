@@ -25,6 +25,8 @@ import com.freelab.tech.travelmate.ui.navigation.LocalNavController
 import com.freelab.tech.travelmate.ui.theme.bgBlack
 import com.freelab.tech.travelmate.ui.utils.isValidEmail
 import com.freelab.tech.travelmate.ui.utils.isValidName
+import com.freelab.tech.travelmate.ui.utils.isValidPassword
+import com.freelab.tech.travelmate.ui.utils.isValidPhone
 
 @Composable
 fun RegisterScreenOne() {
@@ -112,14 +114,16 @@ fun RegisterScreenOne() {
                 fieldValue = phone,
                 label = "Phone Number",
                 keyboardType = KeyboardType.Phone,
-                isError = phoneError
+                isError = phoneError,
+                errorText = "Please enter a valid Phone number"
             )
 
             AppInput(
                 fieldValue = password,
                 label = "Password",
                 keyboardType = KeyboardType.Password,
-                isError = passwordError
+                isError = passwordError,
+                errorText = "Please enter a min 6 length of password"
             )
 
             AppInput(
@@ -127,7 +131,8 @@ fun RegisterScreenOne() {
                 label = "Confirm Password",
                 keyboardType = KeyboardType.Password,
                 isLastInput = true,
-                isError = confirmError
+                isError = confirmError,
+                errorText = "Password fields doesn't match"
             )
 
             Spacer(modifier = Modifier.height(50.dp))
@@ -139,6 +144,18 @@ fun RegisterScreenOne() {
                 }
                 if (!email.value.isValidEmail()) {
                     emailError.value = true
+                    return@AppButton
+                }
+                if (!phone.value.isValidPhone()) {
+                    phoneError.value = true
+                    return@AppButton
+                }
+                if (!password.value.isValidPassword()) {
+                    passwordError.value = true
+                    return@AppButton
+                }
+                if (confirmPassword.value != password.value) {
+                    confirmError.value = true
                     return@AppButton
                 }
                 navController.navigate("register_two")
@@ -172,17 +189,26 @@ fun RegisterScreenTwo() {
     val modelYear = remember {
         mutableStateOf("")
     }
-
+    val modelYearError = remember {
+        mutableStateOf(false)
+    }
     val kmsDriven = remember {
         mutableStateOf("")
     }
-
+    val kmsDrivenError = remember {
+        mutableStateOf(false)
+    }
     val engineType = remember {
         mutableStateOf("")
     }
-
+    val engineTypeError = remember {
+        mutableStateOf(false)
+    }
     val condition = remember {
         mutableStateOf("")
+    }
+    val conditionError = remember {
+        mutableStateOf(false)
     }
 
     Box(
@@ -220,34 +246,39 @@ fun RegisterScreenTwo() {
             AppInput(
                 fieldValue = carName,
                 label = "Car Name",
-                isError = carNameError
+                isError = carNameError,
+                errorText = "Please enter a car name"
             )
 
             AppInput(
                 fieldValue = modelYear,
                 label = "Model Year",
                 keyboardType = KeyboardType.Number,
-                isError = carNameError
+                isError = modelYearError,
+                errorText = "Please enter a valid model year"
             )
 
             AppInput(
                 fieldValue = kmsDriven,
                 label = "Kms Driven",
                 keyboardType = KeyboardType.Number,
-                isError = carNameError
+                isError = kmsDrivenError,
+                errorText = "Please enter a valid KMs Driven"
             )
 
             AppInput(
                 fieldValue = engineType,
                 label = "Engine Type",
-                isError = carNameError
+                isError = engineTypeError,
+                errorText = "Please select a valid engine type"
             )
 
             AppInput(
                 fieldValue = condition,
                 label = "Condition",
                 isLastInput = true,
-                isError = carNameError
+                isError = conditionError,
+                errorText = "Please select a valid condition of your car"
             )
 
             Spacer(modifier = Modifier.height(50.dp))
@@ -255,6 +286,17 @@ fun RegisterScreenTwo() {
             AppButton(text = "Let's Go") {
                 navController.navigate("login")
             }
+
+            Text(
+                text = "I prefer to travel via public transport",
+                fontSize = 14.sp,
+                color = Color.White,
+                modifier = Modifier
+                    .padding(top = 8.dp)
+                    .clickable {
+                        navController.navigate("login")
+                    }
+            )
         }
     }
 }
