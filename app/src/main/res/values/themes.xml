@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TravelMate" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Base.Theme.TravelMate" parent="android:Theme.Material.Light.NoActionBar">
+
+    </style>
+
+    <style name="Theme.TravelMate" parent="Base.Theme.TravelMate" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splashBlack</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.TravelMate</item>
+    </style>
 </resources>

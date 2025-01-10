@@ -16,9 +16,14 @@
         android:theme="@style/Theme.TravelMate"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.HomeScreenActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/Theme.TravelMate" />
+        <activity
             android:name=".ui.preauth.PreAuthActivity"
             android:exported="true"
-            android:theme="@style/Theme.TravelMate">
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
