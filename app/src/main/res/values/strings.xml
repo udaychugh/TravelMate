@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">TravelMate</string>
     <string name="title_activity_home_screen">HomeScreenActivity</string>
+
+    <!-- start screen -->
+    <string name="start_screen_title">Where Are You Going?</string>
+    <string name="start_screen_location_from">From</string>
+    <string name="start_screen_location_from_hint">Enter your location</string>
+    <string name="start_screen_current_location">Current Location</string>
+    <string name="start_screen_location_to">To</string>
+    <string name="start_screen_location_to_hint">Enter drop location</string>
 </resources>

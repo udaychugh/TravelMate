@@ -23,12 +23,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.freelab.tech.travelmate.R
 import com.freelab.tech.travelmate.ui.components.AppButton
-import com.freelab.tech.travelmate.ui.navigation.LocalNavController
+import com.freelab.tech.travelmate.ui.navigation.LocalPreAuthNavController
 
 @Composable
 @Preview(showBackground = true)
 fun IntroScreen() {
-    val navController = LocalNavController.current
+    val navController = LocalPreAuthNavController.current
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.ic_background),

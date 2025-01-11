@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.freelab.tech.travelmate.ui.components.AppButton
 import com.freelab.tech.travelmate.ui.components.AppInput
-import com.freelab.tech.travelmate.ui.navigation.LocalNavController
+import com.freelab.tech.travelmate.ui.navigation.LocalPreAuthNavController
 import com.freelab.tech.travelmate.ui.theme.bgBlack
 import com.freelab.tech.travelmate.ui.utils.isValidEmail
 import com.freelab.tech.travelmate.ui.utils.isValidName
@@ -30,7 +30,7 @@ import com.freelab.tech.travelmate.ui.utils.isValidPhone
 
 @Composable
 fun RegisterScreenOne() {
-    val navController = LocalNavController.current
+    val navController = LocalPreAuthNavController.current
 
     val name = remember {
         mutableStateOf("")
@@ -178,7 +178,7 @@ fun RegisterScreenOne() {
 
 @Composable
 fun RegisterScreenTwo() {
-    val navController = LocalNavController.current
+    val navController = LocalPreAuthNavController.current
 
     val carName = remember {
         mutableStateOf("")

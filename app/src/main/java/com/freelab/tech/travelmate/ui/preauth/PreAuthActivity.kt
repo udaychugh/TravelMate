@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.freelab.tech.travelmate.ui.navigation.AppNavigation
+import com.freelab.tech.travelmate.ui.navigation.PreAuthNavigation
 import com.freelab.tech.travelmate.ui.theme.TravelMateTheme
 
 class PreAuthActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class PreAuthActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TravelMateTheme {
-                AppNavigation()
+                PreAuthNavigation()
             }
         }
     }
