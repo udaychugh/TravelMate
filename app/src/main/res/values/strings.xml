@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">TravelMate</string>
+    <string name="app_start">Start</string>
+    <string name="app_verified">Verified</string>
+    <string name="app_not_verified">Not Verified</string>
     <string name="title_activity_home_screen">HomeScreenActivity</string>
 
     <!-- start screen -->
@@ -9,4 +12,18 @@
     <string name="start_screen_current_location">Current Location</string>
     <string name="start_screen_location_to">To</string>
     <string name="start_screen_location_to_hint">Enter drop location</string>
+    <string name="start_screen_location_date">Date</string>
+    <string name="start_screen_location_today">Today</string>
+    <string name="start_screen_location_tomorrow">Tomorrow</string>
+    <string name="start_screen_passenger">Passenger</string>
+
+    <!-- profile screen -->
+    <string name="profile_screen_edit">Edit Profile</string>
+    <string name="profile_screen_about_app">About App</string>
+    <string name="profile_screen_version">Version - %1$s</string>
+    <string name="profile_screen_logout">Logout</string>
+
+    <!-- home screen -->
+    <string name="home_screen_hello">Hello %1$s,</string>
+    <string name="home_screen_subtitle">Where are we going today?</string>
 </resources>

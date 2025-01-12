@@ -49,7 +49,7 @@ fun PreAuthNavigation() {
 fun HomeNavigation() {
     val navController = rememberNavController()
     CompositionLocalProvider(LocalHomeNavController provides  navController) {
-        NavHost(navController = navController, startDestination = NavConstants.START.screen) {
+        NavHost(navController = navController, startDestination = NavConstants.HOME.screen) {
             composable(NavConstants.START.screen) {
                 StartScreen()
             }
