@@ -38,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -50,6 +51,7 @@ import androidx.compose.ui.unit.sp
 import com.freelab.tech.travelmate.R
 import com.freelab.tech.travelmate.ui.components.AppButton
 import com.freelab.tech.travelmate.ui.home.model.PassengerData
+import com.freelab.tech.travelmate.ui.navigation.IntentManager
 import com.freelab.tech.travelmate.ui.navigation.LocalHomeNavController
 import com.freelab.tech.travelmate.ui.navigation.NavConstants
 import com.freelab.tech.travelmate.ui.theme.bgBlack
@@ -60,7 +62,7 @@ import com.freelab.tech.travelmate.ui.theme.lightOrange
 @Preview(showBackground = true)
 fun StartScreen() {
     val navController = LocalHomeNavController.current
-
+    val context = LocalContext.current
     val passengerState = remember { mutableStateListOf(
         *PassengerData.getPassengerCountList().toTypedArray()
     ) }
@@ -203,7 +205,7 @@ fun StartScreen() {
                     id = R.string.app_start
                 )
             ) {
-                navController.navigate(NavConstants.HOME.screen)
+                IntentManager.gotoJourneyActivity(context)
             }
 
             Spacer(modifier = Modifier.height(30.dp))

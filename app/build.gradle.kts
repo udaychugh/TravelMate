@@ -67,6 +67,7 @@ dependencies {
 
     // Image loading library
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

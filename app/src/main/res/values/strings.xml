@@ -26,4 +26,5 @@
     <!-- home screen -->
     <string name="home_screen_hello">Hello %1$s,</string>
     <string name="home_screen_subtitle">Where are we going today?</string>
+    <string name="home_screen_start_trip">LET\'s START</string>
 </resources>
