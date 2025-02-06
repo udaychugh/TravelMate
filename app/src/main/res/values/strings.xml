@@ -27,4 +27,8 @@
     <string name="home_screen_hello">Hello %1$s,</string>
     <string name="home_screen_subtitle">Where are we going today?</string>
     <string name="home_screen_start_trip">LET\'s START</string>
+
+    <!-- rest place screen -->
+    <string name="rest_place_screen_person_cost">Cost for Two: ₹%1$d</string>
+    <string name="rest_place_screen_distance">%1$d%2$s from here</string>
 </resources>
