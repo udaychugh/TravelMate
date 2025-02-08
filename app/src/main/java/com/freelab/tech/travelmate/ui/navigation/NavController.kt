@@ -1,14 +1,16 @@
 package com.freelab.tech.travelmate.ui.navigation
 
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.*
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.freelab.tech.travelmate.ui.components.BottomBar
 import com.freelab.tech.travelmate.ui.home.screens.HomeScreen
 import com.freelab.tech.travelmate.ui.home.screens.ProfileScreen
 import com.freelab.tech.travelmate.ui.home.screens.StartScreen
@@ -64,20 +66,10 @@ fun HomeNavigation() {
             composable(NavConstants.START.screen) {
                 StartScreen()
             }
-            composable(NavConstants.HOME.screen,
-                enterTransition = {
-                    return@composable scaleIn()
-                }, exitTransition = {
-                    return@composable scaleOut()
-                }) {
+            composable(NavConstants.HOME.screen) {
                 HomeScreen()
             }
-            composable(NavConstants.PROFILE.screen,
-                enterTransition = {
-                    return@composable scaleIn()
-                }, exitTransition = {
-                    return@composable scaleOut()
-                }) {
+            composable(NavConstants.PROFILE.screen) {
                 ProfileScreen()
             }
 
@@ -88,8 +80,8 @@ fun HomeNavigation() {
 @Composable
 fun JourneyNavigation() {
     val navController = rememberNavController()
-    CompositionLocalProvider(LocalHomeNavController provides navController) {
-        NavHost(navController = navController, startDestination = NavConstants.MAPS.screen) {
+    CompositionLocalProvider(LocalJourneyNavController provides navController) {
+        NavHost(navController = navController, startDestination = NavConstants.WEATHER.screen) {
             composable(NavConstants.MAPS.screen){
                 MapsScreen()
             }
@@ -107,5 +99,6 @@ fun JourneyNavigation() {
             }
 
         }
+        BottomBar()
     }
 }
